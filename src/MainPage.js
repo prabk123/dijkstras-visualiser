@@ -4,6 +4,7 @@ import Node from "./components/Node";
 import "./MainPage.css";
 import { dijkstras, shortestPath } from "./algorithms/dijkstras";
 import { recursiveDivision } from "./algorithms/mazeGenerator";
+import Intro from "./components/Intro";
 
 const START_NODE_ROW = 10;
 const START_NODE_COL = 10;
@@ -223,6 +224,7 @@ class MainPage extends Component {
     const { grid, mouseIsPressed, animating, isMaze } = this.state;
     return (
       <div>
+        <Intro />
         <NavBar
           generateMaze={this.visualizeMaze}
           clearGrid={this.clearGrid}
