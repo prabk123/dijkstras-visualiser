@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalHeader,
-  ModalFooter
-} from "shards-react";
+import { Modal, ModalBody, ModalHeader, ModalFooter } from "shards-react";
 import Avatar from "../avatar-nb.png";
 import Video from "../dijkstras-visualiser.mp4";
 

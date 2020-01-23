@@ -89,10 +89,7 @@ export function dijkstras(grid, startNode, endNode) {
   nodes.enqueue(startNode, startNode.distance);
   let priority;
   // While there is something in the queue
-  var i = 0;
   while (!!nodes.values.length) {
-    i++;
-    console.log(nodes.values.slice());
     // Get the first priority node - Node with shortest distance
     priority = nodes.dequeue().val;
     // If the node is a wall then skip
@@ -112,13 +109,20 @@ export function dijkstras(grid, startNode, endNode) {
     if (col > 0) neighbors.push(grid[row][col - 1]);
     if (col < grid[0].length - 1) neighbors.push(grid[row][col + 1]);
     neighbors = neighbors.filter(x => !x.isVisited);
-    neighbors.forEach(neighbor => {
-      neighbor.distance = priority.distance + 1;
-      neighbor.previousNode = priority;
-      if (!nodes.values.some(x => x.val === neighbor)) {
-        nodes.enqueue(neighbor, neighbor.distance);
+    for (let i = 0; i < neighbors.length; i++) {
+      neighbors[i].distance = priority.distance + 1;
+      neighbors[i].previousNode = priority;
+      if (!nodes.values.some(x => x.val === neighbors[i])) {
+        nodes.enqueue(neighbors[i], neighbors[i].distance);
       }
-    });
+    }
+    // neighbors.forEach(neighbor => {
+    //   neighbor.distance = priority.distance + 1;
+    //   neighbor.previousNode = priority;
+    //   if (!nodes.values.some(x => x.val === neighbor)) {
+    //     nodes.enqueue(neighbor, neighbor.distance);
+    //   }
+    // });
   }
   return visitedNodes;
 }

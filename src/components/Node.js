@@ -22,9 +22,27 @@ export default class Node extends Component {
       ? "node-wall"
       : "";
     const content = isFinish ? (
-      <i className="fas fa-bullseye" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate3D(-50%, -50%, 0)", fontSize: '1.5em' }}></i>
+      <i
+        className="fas fa-bullseye"
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate3D(-50%, -50%, 0)",
+          fontSize: "1.5em"
+        }}
+      ></i>
     ) : isStart ? (
-      <i className="fas fa-chevron-right" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate3D(-50%, -50%, 0)", fontSize: '1.5em' }}></i>
+      <i
+        className="fas fa-chevron-right"
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate3D(-50%, -50%, 0)",
+          fontSize: "1.5em"
+        }}
+      ></i>
     ) : null;
     return (
       <td

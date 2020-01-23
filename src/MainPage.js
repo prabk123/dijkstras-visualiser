@@ -135,16 +135,18 @@ class MainPage extends Component {
     this.animateMaze(walledNodes, newGrid);
   };
 
-  animateMaze = async (walledNodes, grid) => {
+  animateMaze = async (walledNodes, newGrid) => {
     for (let i = 0; i < walledNodes.length; i++) {
       const node = walledNodes[i];
-      document
-        .getElementById(`node-${node.row}-${node.col}`)
-        .classList.add("wall-animate");
-      await this.wait(3);
+      if (node.isWall) {
+        document
+          .getElementById(`node-${node.row}-${node.col}`)
+          .classList.add("wall-animate");
+        await this.wait(3);
+      }
     }
-    await this.wait(50);
-    this.setState({ grid, animating: false, isMaze: true });
+    await this.wait(100);
+    this.setState({ grid: newGrid, animating: false, isMaze: true });
   };
 
   resetPath = () => {
@@ -242,6 +244,7 @@ class MainPage extends Component {
               <a
                 href="https://www.prabodhkakodkar.com/personal-projects"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="custom-link"
               >
                 my webiste →
