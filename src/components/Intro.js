@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "shards-react";
 import Avatar from "../media/avatar-nb.png";
-import Video from "../media/dijkstras-visualiser.mp4";
+import MainVisualise from "../media/dijkstras-visualiser.mp4";
+import DrawPath from "../media/draw-path.mp4";
+import GenerateMaze from "../media/generate-maze.mp4";
+import Video from "./Video";
 
 class Intro extends Component {
   constructor(props) {
@@ -40,9 +43,9 @@ class Intro extends Component {
               <div className="speech-wrapper load-hidden reveal-right">
                 <div className="speech-pointer"></div>
                 <div className="speech-container shadow d-block d-md-flex justify-content-between align-items-center">
-                  <h2 className="m-0 text-left">
+                  <h4 className="m-0 text-left">
                     Welcome to the Dijkstra's Algorithm Visualiser!
-                  </h2>
+                  </h4>
                 </div>
               </div>
             </div>
@@ -51,18 +54,13 @@ class Intro extends Component {
         slide = (
           <>
             <p>
-              This tutorial will quickly overview the features of this
-              application.
+              Dijkstra's algorithm is a way of finding the shortest path between
+              nodes in a graph. This application is built with react and
+              visualises how the algorithm visits nodes before determining the
+              shortest way of getting from a start node to an end node. This
+              tutorial will quickly overview the features of this application.
             </p>
-            <video
-              className="w-75 my-4 d-block mx-auto shadow"
-              autoPlay
-              muted
-              loop
-            >
-              <source src={Video} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <Video video={MainVisualise} />
             <p>
               If you want to dive right in, feel free to press the "Skip
               Tutorial" button below. Otherwise, press "Next"!
@@ -78,7 +76,7 @@ class Intro extends Component {
               <div className="speech-wrapper load-hidden reveal-right">
                 <div className="speech-pointer"></div>
                 <div className="speech-container shadow d-block d-md-flex justify-content-between align-items-center">
-                  <h2 className="m-0 text-left">Dijkstra's Algorithm</h2>
+                  <h4 className="m-0 text-left">Draw Walls</h4>
                 </div>
               </div>
             </div>
@@ -87,19 +85,12 @@ class Intro extends Component {
         slide = (
           <>
             <p className="mb-5">
-              There are 6 algorithms being compared. Below is a breif overview
-              of each algorith and how they work:
+              Draw walls onto the grid to create barriers that the algorithm
+              should not pass through. You can do this by clicking on the grid
+              item you'd like to start at and dragging your mouse over the nodes
+              you'd like to make walls.
             </p>
-            <h5>Bubble Sort</h5>
-            <p>
-              Bubble sort itterates through each item in the array checking the
-              i<sup>th</sup> item and the i+1 item in the array. If the i
-              <sup>th</sup> item is larger than the i+1 item then the array
-              items are swapped. This causes the largest item in the array to
-              bubble up to the end. Hence the name of the algorithm. This is
-              then repeated until the array is sorted. Bubble sort has a time
-              complexity of O(n<sup>2</sup>).
-            </p>
+            <Video video={DrawPath} />
           </>
         );
         break;
@@ -111,7 +102,7 @@ class Intro extends Component {
               <div className="speech-wrapper load-hidden reveal-right">
                 <div className="speech-pointer"></div>
                 <div className="speech-container shadow d-block d-md-flex justify-content-between align-items-center">
-                  <h2 className="m-0 text-left">Features</h2>
+                  <h4 className="m-0 text-left">Generate a maze</h4>
                 </div>
               </div>
             </div>
@@ -120,15 +111,11 @@ class Intro extends Component {
         slide = (
           <>
             <p>
-              This tutorial will quickly overview the features of this
-              application and the different sorting algorithms that are being
-              compared.
+              Click on "Generate Maze in the menu bar to automatically create a
+              recurively generated maze. You can also clear the entire grid and
+              clear the visualised path by using the other menu items."
             </p>
-
-            <p>
-              If you want to dive right in, feel free to press the "Skip
-              Tutorial" button below. Otherwise, press "Next"!
-            </p>
+            <Video video={GenerateMaze} />
           </>
         );
         break;
@@ -140,9 +127,9 @@ class Intro extends Component {
               <div className="speech-wrapper load-hidden reveal-right">
                 <div className="speech-pointer"></div>
                 <div className="speech-container shadow d-block d-md-flex justify-content-between align-items-center">
-                  <h2 className="m-0 text-left">
-                    Welcome to the Sorting Algorithm Visualiser!
-                  </h2>
+                  <h4 className="m-0 text-left">
+                    Welcome to the Dijkstra's Algorithm Visualiser!
+                  </h4>
                 </div>
               </div>
             </div>
@@ -151,11 +138,22 @@ class Intro extends Component {
         slide = (
           <>
             <p>
-              This tutorial will quickly overview the features of this
-              application and the different sorting algorithms that are being
-              compared.
+              Dijkstra's algorithm is a way of finding the shortest path between
+              nodes in a graph. This application is built with react and
+              visualises how the algorithm visits nodes before determining the
+              shortest way of getting from a start node to an end node. This
+              tutorial will quickly overview the features of this application.
             </p>
-
+            <video
+              className="w-100 my-4 d-block mx-auto shadow"
+              style={{ maxWidth: "400px" }}
+              autoPlay
+              muted
+              loop
+            >
+              <source src={Video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <p>
               If you want to dive right in, feel free to press the "Skip
               Tutorial" button below. Otherwise, press "Next"!
