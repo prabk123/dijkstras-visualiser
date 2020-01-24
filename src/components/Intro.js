@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, ModalBody, ModalHeader, ModalFooter } from "shards-react";
-import Avatar from "../avatar-nb.png";
-import Video from "../dijkstras-visualiser.mp4";
+import Avatar from "../media/avatar-nb.png";
+import Video from "../media/dijkstras-visualiser.mp4";
 
 class Intro extends Component {
   constructor(props) {

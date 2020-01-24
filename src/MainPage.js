@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "./components/NavBar";
 import Node from "./components/Node";
-import "./MainPage.css";
+import "./css/MainPage.css";
 import { dijkstras, shortestPath } from "./algorithms/dijkstras";
 import { recursiveDivision } from "./algorithms/mazeGenerator";
 import Intro from "./components/Intro";

@@ -1,7 +1,10 @@
 //=========================================
+//=========================================
 //  MAZE GENERATION
 //=========================================
+//=========================================
 
+// Add outer walls of the maze
 function addOuterWalls(grid, walledNodes) {
   for (var i = 0; i < grid.length; i++) {
     if (i === 0 || i === grid.length - 1) {
@@ -18,19 +21,25 @@ function addOuterWalls(grid, walledNodes) {
   }
 }
 
+// Recursive division function
 export function recursiveDivision(grid) {
+  // Initiate walled nodes array for animations later
   let walledNodes = [];
   let rowStart = 0;
   let rowEnd = grid.length - 1;
   let colStart = 0;
   let colEnd = grid[1].length - 1;
-
+  // Resursive helper function
   function divide(minY, maxY, minX, maxX, h) {
+    // Alternate between horizontal and vertical division
     if (h) {
+      // If the difference between the start column and end column is less that 2 we no longer want to divide
       if (maxX - minX < 2) return;
+      // Randomly pick a row
       const y = Math.floor(randomNumber(minY, maxY) / 2) * 2;
+      // Add wall
       addHWall(minX, maxX, y);
-
+      // Repeat for the upper and lower halves of the segment (now verically)
       divide(minY, y - 1, minX, maxX, !h);
       divide(y + 1, maxY, minX, maxX, !h);
     } else {
@@ -44,10 +53,11 @@ export function recursiveDivision(grid) {
   }
 
   function addHWall(minX, maxX, y) {
+    // Randomly pick an index to add the gap
     const hole = Math.floor(randomNumber(minX, maxX) / 2) * 2 + 1;
+    // Loop through every grid item adding a wall (skipping the hole)
     for (var i = minX; i <= maxX; i++) {
       if (i === hole) {
-        // if (grid[y][i].isStart || grid[y][i].isFinish) continue;
         if (
           i === 0 ||
           i === grid[y].length - 1 ||

@@ -77,14 +77,17 @@ class Node {
 //=======================================
 //=======================================
 
-// PRIORITY QUEUE
+// DIJKSTRA'S ALGORITHM
 
 //=======================================
 //=======================================
 
 export function dijkstras(grid, startNode, endNode) {
+  // Initiate the priority queue
   var nodes = new PriorityQueue();
+  // Set up visited nodes array - used for animations later
   const visitedNodes = [];
+  // Give the start node a distance of 1 and use the distance as the priority
   startNode.distance = 1;
   nodes.enqueue(startNode, startNode.distance);
   let priority;
@@ -99,31 +102,27 @@ export function dijkstras(grid, startNode, endNode) {
     visitedNodes.push(priority);
     // Return if the priority node is the end node
     if (priority === endNode) return visitedNodes;
-    // Find neighboring nodes and update the distancs
-    // Set each of the neighboring nodes to have a prevous node of the currnent priority
-    // Push them all into the priority queue then re-loop
+    // Find neighboring nodes to the priority node
     let neighbors = [];
     const { col, row } = priority;
     if (row > 0) neighbors.push(grid[row - 1][col]);
     if (row < grid.length - 1) neighbors.push(grid[row + 1][col]);
     if (col > 0) neighbors.push(grid[row][col - 1]);
     if (col < grid[0].length - 1) neighbors.push(grid[row][col + 1]);
+    // Filter out visited nodes as we don't want to revist them
     neighbors = neighbors.filter(x => !x.isVisited);
     for (let i = 0; i < neighbors.length; i++) {
+      // Update the distance to be an accumulation of all the nodes before it
       neighbors[i].distance = priority.distance + 1;
+      // Set a previous property to be the priority node - this lets us find the shortest path later
       neighbors[i].previousNode = priority;
+      // Only push the neighbor onto the priority queue if it isn't already in there
       if (!nodes.values.some(x => x.val === neighbors[i])) {
         nodes.enqueue(neighbors[i], neighbors[i].distance);
       }
     }
-    // neighbors.forEach(neighbor => {
-    //   neighbor.distance = priority.distance + 1;
-    //   neighbor.previousNode = priority;
-    //   if (!nodes.values.some(x => x.val === neighbor)) {
-    //     nodes.enqueue(neighbor, neighbor.distance);
-    //   }
-    // });
   }
+  // If there is nothing left in the priority queue return the visited nodes array for animation
   return visitedNodes;
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Avatar from "../avatar-nb.png";
+import Avatar from "../media/avatar-nb.png";
 import {
   Navbar,
   NavbarToggler,
