@@ -7,6 +7,6 @@ Dijkstra's algorithm is a way of finding the shortest path between nodes in a gr
 - Pathfinding visualisation
 - Shortest path visualisation
 - Recursive maze generation
-- Interactive grid - draw on your own maze
+- Interactive grid - draw your own maze
 
 ![DijkstaVisualiser](https://www.prabodhkakodkar.com/static/media/trimmed-visual.gif)
