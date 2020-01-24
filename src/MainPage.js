@@ -138,12 +138,14 @@ class MainPage extends Component {
   animateMaze = async (walledNodes, newGrid) => {
     for (let i = 0; i < walledNodes.length; i++) {
       const node = walledNodes[i];
-      if (node.isWall) {
-        document
-          .getElementById(`node-${node.row}-${node.col}`)
-          .classList.add("wall-animate");
-        await this.wait(3);
+      if (!node.isWall) {
+        console.log(node.row, node.col);
+        continue;
       }
+      document
+        .getElementById(`node-${node.row}-${node.col}`)
+        .classList.add("wall-animate");
+      await this.wait(3);
     }
     await this.wait(100);
     this.setState({ grid: newGrid, animating: false, isMaze: true });
